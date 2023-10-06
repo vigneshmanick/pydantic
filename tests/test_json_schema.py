@@ -4264,8 +4264,8 @@ def test_secrets_schema(secret_cls, field_kw, schema_kw):
 
 def test_override_generate_json_schema():
     class MyGenerateJsonSchema(GenerateJsonSchema):
-        def generate(self, schema, mode='validation'):
-            json_schema = super().generate(schema, mode=mode)
+        def generate(self, schema, mode='validation', sort_schema=True):
+            json_schema = super().generate(schema, mode=mode, sort_schema=sort_schema)
             json_schema['$schema'] = self.schema_dialect
             return json_schema
 
